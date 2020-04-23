@@ -445,14 +445,14 @@ static std::string getMultiplierString(double multiplier, bool numOnly = false)
     ss << std::setprecision(P) << multiplier;
     auto rv = ss.str();
     if (rv.size() <= 4) {
-        // modify some improper strings that cause issues later on
+    // modify some improper strings that cause issues later on
         // some platforms don't produce these
-        if (rv == "inf") {
-            return "1.00000000000000*(infinity)";  // LCOV_EXCL_LINE
-        }
-        if (rv == "-inf") {
-            return "1.00000000000000*(-1.00000000000000*infinity)";  // LCOV_EXCL_LINE
-        }
+    if (rv == "inf") {
+        return "1.00000000000000*(infinity)";  // LCOV_EXCL_LINE
+    }
+    if (rv == "-inf") {
+        return "1.00000000000000*(-1.00000000000000*infinity)";  // LCOV_EXCL_LINE
+    }
         if (rv == "nan") {
             return "1.00000000000000*(nan)";  // LCOV_EXCL_LINE
         }
@@ -1284,9 +1284,9 @@ static std::string
                 if (!urem.base_units().empty()) {
                     return mult + '*' + to_string_internal(urem, match_flags) +
                         '*' + cxstr;
-                }
-                return mult + '*' + cxstr;
             }
+                return mult + '*' + cxstr;
+        }
         }
         if (!urem.base_units().empty() || urem.multiplier() != 1.0) {
             return to_string_internal(urem, match_flags) + '*' + cxstr;
@@ -3418,9 +3418,11 @@ static const smap base_unit_vals{
     {"acre_br", precise::imp::acre},
     {"acres_br", precise::imp::acre},
     {"buildersacre", precise_unit(40000.0, precise::ft.pow(2))},
-    {"Gasolineat15.5C", precise_unit(739.33, precise::kg / precise::m.pow(3))},
-    {"rood", precise_unit(0.25, precise::imp::acre)},
+    {"Gasolineat15.5C", {739.33, precise::kg / precise::m.pow(3)}},
+    {"rood", {0.25, precise::imp::acre}},
     {"are", precise::area::are},
+        // this is an odd form of the prefix
+    {"decare", {10.0, precise::area::are}},
     {"ar", precise::area::are},
     {"AR", precise::area::are},
     {"hectare", precise::area::hectare},
