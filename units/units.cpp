@@ -2229,7 +2229,7 @@ using ckpair = std::pair<const char*, const char*>;
 static precise_unit
     localityModifiers(std::string unit, std::uint32_t match_flags)
 {
-    static UNITS_CPP14_CONSTEXPR_OBJECT std::array<ckpair, 42>
+    static UNITS_CPP14_CONSTEXPR_OBJECT std::array<ckpair, 44>
         internationlReplacements{{
             ckpair{"internationaltable", "_IT"},
             ckpair{"internationalsteamtable", "_IT"},
@@ -2273,6 +2273,8 @@ static precise_unit
             ckpair{"Br", "_br"},
             ckpair{"BR", "_br"},
             ckpair{"UK", "_br"},
+            ckpair{"AC", "_ac"},
+            ckpair{"DC", "_dc"},
         }};
     bool changed = false;
     for (const auto& irep : internationlReplacements) {
@@ -2549,6 +2551,8 @@ static const smap base_unit_vals{
     {"At", precise::A* precise::count},
     {"V", precise::V},
     {"volt", precise::V},
+    {"volt_ac", precise::V},
+    {"volt_dc", precise::V},
     {"W", precise::W},
     {"W/m^2", precise::W / precise::m.pow(2)},
     {"watt", precise::W},
@@ -4252,6 +4256,7 @@ static const smap base_unit_vals{
     {"finger(cloth)", precise::textile::finger},
     {"nail(cloth)", precise::textile::nail},
     {"PRU", precise::clinical::pru},
+    {"sitas", {100.0,m.pow(2)}},
     {"peripheralvascularresistanceunit", precise::clinical::pru},
     {"peripheralresistanceunit", precise::clinical::pru},
     {"potentialvorticityunit",
