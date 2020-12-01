@@ -2582,6 +2582,9 @@ static const smap base_unit_vals{
     {"CD", precise::cd},
     {"candela", precise::cd},
     {"candle", precise::other::candle},
+    {"candle_it", precise::lm / precise::sr},
+    {"candle_uk",
+     precise_unit(1.0416666666666666667, precise::lm / precise::sr)},
     {"candlepower", precise::other::candle},
     {"CP", precise::other::candle},
     {"footcandle", precise::lumen / precise::ft.pow(2)},
@@ -3277,6 +3280,7 @@ static const smap base_unit_vals{
     {"eighth", precise_unit(0.125, precise::one)},
     {"tenth", precise_unit(0.1, precise::one)},
     {"cell", precise_unit(1.0, precise::count, commodities::cell)},
+    {"erlang", precise::generate_custom_unit(49)},
     {"{cells}", precise_unit(1.0, precise::count, commodities::cell)},
     // mainly to catch the commodity for using cell
     {"{#}", precise::count},
@@ -3425,7 +3429,7 @@ static const smap base_unit_vals{
     {"Gasolineat15.5C", {739.33, precise::kg / precise::m.pow(3)}},
     {"rood", {0.25, precise::imp::acre}},
     {"are", precise::area::are},
-        // this is an odd form of the prefix
+    // this is an odd form of the prefix
     {"decare", {10.0, precise::area::are}},
     {"ar", precise::area::are},
     {"AR", precise::area::are},
@@ -4256,7 +4260,7 @@ static const smap base_unit_vals{
     {"finger(cloth)", precise::textile::finger},
     {"nail(cloth)", precise::textile::nail},
     {"PRU", precise::clinical::pru},
-    {"sitas", {100.0,m.pow(2)}},
+    {"sitas", {100.0, m.pow(2)}},
     {"peripheralvascularresistanceunit", precise::clinical::pru},
     {"peripheralresistanceunit", precise::clinical::pru},
     {"potentialvorticityunit",
@@ -4474,8 +4478,13 @@ static const smap base_unit_vals{
      precise_unit(1.0, precise::log::neglog50000, commodities::Korsakov)},
     {"pH", precise::laboratory::pH},
     {"pHscale", precise::laboratory::pH},
-    {"[PH]", precise::laboratory::pH},
-};
+    {"[PH]", precise::laboratory::pH}, 
+    {"ream",{500.0, precise::count, commodities::paper}},
+    {"ream_br", {480.0, precise::count, commodities::paper}},
+    {"quire", {25.0, precise::count, commodities::paper}},
+    {"quire_br", {24.0, precise::count, commodities::paper}},
+    {"sheet", {1.0, precise::count, commodities::paper}},
+    };
 
 // LCOV_EXCL_START
 
