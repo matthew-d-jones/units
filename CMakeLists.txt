@@ -76,6 +76,11 @@ set(UNITS_CLANG_TIDY_OPTIONS
     CACHE STRING "Clang tidy options, such as -fix, semicolon separated"
 )
 
+set(UNITS_NAMESPACE
+    "units"
+    CACHE STRING "Top-level namespace name. Default is `units`."
+)
+
 mark_as_advanced(UNITS_CLANG_TIDY_OPTIONS)
 mark_as_advanced(UNITS_CLANG_TIDY)
 

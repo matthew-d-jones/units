@@ -10,7 +10,9 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <iostream>
 #include <type_traits>
 
-using namespace units;
+namespace units = UNITS_NAMESPACE;
+using namespace UNITS_NAMESPACE;
+
 TEST(MeasurementStrings, basic)
 {
     auto pm = measurement_from_string("45 m");

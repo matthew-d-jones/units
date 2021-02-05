@@ -12,7 +12,9 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <fstream>
 #include <iostream>
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
+namespace units = UNITS_NAMESPACE;
+
 TEST(fuzzFailures, convFailures)
 {
     EXPECT_NO_THROW(unit_from_string("+z264"));

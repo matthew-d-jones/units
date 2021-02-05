@@ -9,7 +9,7 @@ SPDX-License-Identifier: BSD-3-Clause
 
 #include <cmath>
 
-using namespace units::detail::testing;
+using namespace UNITS_NAMESPACE::detail::testing;
 
 TEST(leadingNumbers, simple)
 {

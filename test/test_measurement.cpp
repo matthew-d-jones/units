@@ -9,7 +9,8 @@ SPDX-License-Identifier: BSD-3-Clause
 
 #include <type_traits>
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
+
 TEST(Measurement, ops)
 {
     measurement d1(45.0, m);
@@ -202,7 +203,6 @@ TEST(Measurement, invalid)
     EXPECT_TRUE(isnormal(iv5));
 }
 
-using namespace units;
 TEST(fixedMeasurement, ops)
 {
     fixed_measurement d1(45.0, m);
@@ -641,7 +641,6 @@ TEST(PreciseMeasurement, cast)
         "measurement cast not working for measurement");
 }
 
-using namespace units;
 TEST(fixedPreciseMeasurement, ops)
 {
     fixed_precise_measurement d1(45.0, precise::m);

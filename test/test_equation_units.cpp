@@ -8,7 +8,8 @@ SPDX-License-Identifier: BSD-3-Clause
 #include "test.hpp"
 #include "units/units.hpp"
 
-using namespace units;
+namespace units = UNITS_NAMESPACE;
+using namespace UNITS_NAMESPACE;
 
 TEST(logUnits, nonEquality)
 {

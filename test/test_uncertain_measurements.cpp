@@ -10,7 +10,8 @@ SPDX-License-Identifier: BSD-3-Clause
 
 #include <memory>
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
+
 TEST(uncertainOps, construction)
 {
     uncertain_measurement um1(5.0F, 0.01F, m);
