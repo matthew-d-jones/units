@@ -21,6 +21,8 @@ static const double hundred_C = 100.0;
 static const double hundred_C_in_F = 212.0;
 static const double hundred_C_in_K = 373.15;
 
+namespace units = UNITS_NAMESPACE;
+
 TEST(Temperature, ConversionsUnit)
 {
     using namespace units;

@@ -8,7 +8,7 @@ SPDX-License-Identifier: BSD-3-Clause
 #include "test.hpp"
 #include "units/units.hpp"
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
 
 TEST(PU, basic)
 {

@@ -14,6 +14,8 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <ostream>
 #include <sstream>
 
+namespace units = UNITS_NAMESPACE;
+
 TEST(UDUNITS, accepted_name_symbols)
 {
     tinyxml2::XMLDocument doc;

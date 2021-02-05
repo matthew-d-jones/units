@@ -12,7 +12,7 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <limits>
 #include <random>
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
 
 TEST(randomRoundTrip, basic)
 {

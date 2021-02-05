@@ -11,6 +11,8 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <fstream>
 #include <vector>
 
+namespace units = UNITS_NAMESPACE;
+
 // structure containing information on a single conversion
 struct convValue {
     std::string name;

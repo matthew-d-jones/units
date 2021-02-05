@@ -9,6 +9,8 @@ SPDX-License-Identifier: BSD-3-Clause
 #include "units/units.hpp"
 #include <cstdio>
 
+namespace units = UNITS_NAMESPACE;
+
 int main(int argc, char* argv[])
 {
     CLI::App app(

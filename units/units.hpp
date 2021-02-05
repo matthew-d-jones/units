@@ -24,7 +24,7 @@ SPDX-License-Identifier: BSD-3-Clause
 #define UNITS_CPP14_CONSTEXPR_METHOD
 #endif
 
-namespace units {
+namespace UNITS_NAMESPACE {
 /// Generate a conversion factor between two units in a constexpr function, the
 /// units will only convert if they have the same base unit
 template<typename UX, typename UX2>
@@ -346,7 +346,7 @@ class measurement {
     /// Convert a unit to have a new base
     measurement convert_to(const unit& newUnits) const
     {
-        return {units::convert(value_, units_, newUnits), newUnits};
+        return {UNITS_NAMESPACE::convert(value_, units_, newUnits), newUnits};
     }
 
     /// Convert a unit into its base units
@@ -403,7 +403,7 @@ class measurement {
     {
         return (units_ == desired_unit) ?
             value_ :
-            units::convert(value_, units_, desired_unit);
+            UNITS_NAMESPACE::convert(value_, units_, desired_unit);
     }
 
   private:
@@ -551,7 +551,7 @@ class fixed_measurement {
     /// Convert a unit to have a new base
     fixed_measurement convert_to(const unit& newUnits) const
     {
-        return {units::convert(value_, units_, newUnits), newUnits};
+        return {UNITS_NAMESPACE::convert(value_, units_, newUnits), newUnits};
     }
     /// Get the underlying units value
     constexpr unit units() const { return units_; }
@@ -564,7 +564,7 @@ class fixed_measurement {
     {
         return (units_ == desired_units) ?
             value_ :
-            units::convert(static_cast<double>(value_), units_, desired_units);
+            UNITS_NAMESPACE::convert(static_cast<double>(value_), units_, desired_units);
     }
 
     fixed_measurement& operator+=(double val)
@@ -989,14 +989,14 @@ class uncertain_measurement {
     {
         return (units_ == desired_units) ?
             static_cast<double>(value_) :
-            units::convert(static_cast<double>(value_), units_, desired_units);
+            UNITS_NAMESPACE::convert(static_cast<double>(value_), units_, desired_units);
     }
     /// Get the numerical value of the uncertainty as a particular unit
     double uncertainty_as(unit desired_units) const
     {
         return (units_ == desired_units) ?
             static_cast<double>(uncertainty_) :
-            units::convert(
+            UNITS_NAMESPACE::convert(
                 static_cast<double>(uncertainty_), units_, desired_units);
     }
 
@@ -1252,7 +1252,7 @@ class precise_measurement {
     /// Convert a unit to have a new base
     precise_measurement convert_to(const precise_unit& newUnits) const
     {
-        return {units::convert(value_, units_, newUnits), newUnits};
+        return {UNITS_NAMESPACE::convert(value_, units_, newUnits), newUnits};
     }
 
     /// Convert a unit into its base units
@@ -1298,7 +1298,7 @@ class precise_measurement {
     {
         return (units_ == desired_units) ?
             value_ :
-            units::convert(value_, units_, desired_units);
+            UNITS_NAMESPACE::convert(value_, units_, desired_units);
     }
     // double multiplier
     friend constexpr inline precise_measurement
@@ -1430,7 +1430,7 @@ class fixed_precise_measurement {
     {
         return (units_ == desired_units) ?
             value_ :
-            units::convert(value_, units_, desired_units);
+            UNITS_NAMESPACE::convert(value_, units_, desired_units);
     }
 
     constexpr precise_measurement
@@ -1511,7 +1511,7 @@ class fixed_precise_measurement {
     /// Convert a unit to have a new base
     precise_measurement convert_to(const precise_unit& newUnits) const
     {
-        return {units::convert(value_, units_, newUnits), newUnits};
+        return {UNITS_NAMESPACE::convert(value_, units_, newUnits), newUnits};
     }
 
     /// Convert a unit into its base units
@@ -2080,4 +2080,4 @@ namespace detail {
 }  // namespace detail
 #endif
 
-}  // namespace units
+}  // namespace UNITS_NAMESPACE

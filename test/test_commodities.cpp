@@ -26,7 +26,7 @@ bool disableCustomCommodities();
 bool enableCustomCommodities();
 */
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
 TEST(commodities, get)
 {
     auto c = getCommodity("oil");

@@ -11,7 +11,8 @@ SPDX-License-Identifier: BSD-3-Clause
 
 #include <memory>
 
-using namespace units;
+using namespace UNITS_NAMESPACE;
+
 TEST(unitOps, Simple)
 {
     EXPECT_EQ(m, m);

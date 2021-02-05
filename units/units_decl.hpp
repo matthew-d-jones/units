@@ -11,7 +11,7 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <cstring>  // for std::memcpy
 #include <functional>  // for std::hash
 
-namespace units {
+namespace UNITS_NAMESPACE {
 namespace detail {
     /** Class representing base unit data
     @details the seven SI base units
@@ -316,13 +316,13 @@ namespace detail {
         "Unit data is too large");
 
 }  // namespace detail
-}  // namespace units
+}  // namespace UNITS_NAMESPACE
 
 namespace std {
 /// Hash function for unit_data
 template<>
-struct hash<units::detail::unit_data> {
-    size_t operator()(const units::detail::unit_data& x) const noexcept
+struct hash<UNITS_NAMESPACE::detail::unit_data> {
+    size_t operator()(const UNITS_NAMESPACE::detail::unit_data& x) const noexcept
     {
         unsigned int val;
         std::memcpy(&val, &x, sizeof(val));
@@ -331,7 +331,7 @@ struct hash<units::detail::unit_data> {
 };
 }  // namespace std
 
-namespace units {
+namespace UNITS_NAMESPACE {
 namespace detail {
     /// constexpr operator to generate an integer power of a number
     template<typename X>
@@ -956,25 +956,25 @@ static_assert(
     sizeof(precise_unit) <= 2 * sizeof(double),
     "precise unit type is too large");
 
-}  // namespace units
+}  // namespace UNITS_NAMESPACE
 
 /// Defining the hash functions for a unit and precise_unit so they can be used
 /// in unordered_map
 namespace std {
 template<>
-struct hash<units::unit> {
-    size_t operator()(const units::unit& x) const
+struct hash<UNITS_NAMESPACE::unit> {
+    size_t operator()(const UNITS_NAMESPACE::unit& x) const
     {
-        return hash<units::detail::unit_data>()(x.base_units()) ^
+        return hash<UNITS_NAMESPACE::detail::unit_data>()(x.base_units()) ^
             hash<float>()(x.cround());
     }
 };
 
 template<>
-struct hash<units::precise_unit> {
-    size_t operator()(const units::precise_unit& x) const
+struct hash<UNITS_NAMESPACE::precise_unit> {
+    size_t operator()(const UNITS_NAMESPACE::precise_unit& x) const
     {
-        return hash<units::detail::unit_data>()(x.base_units()) ^
+        return hash<UNITS_NAMESPACE::detail::unit_data>()(x.base_units()) ^
             hash<double>()(x.cround());
     }
 };
