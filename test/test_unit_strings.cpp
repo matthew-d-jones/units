@@ -9,7 +9,9 @@ SPDX-License-Identifier: BSD-3-Clause
 #include "test.hpp"
 #include <algorithm>
 
-using namespace units;
+namespace units = UNITS_NAMESPACE;
+using namespace UNITS_NAMESPACE;
+
 TEST(unitStrings, Simple)
 {
     EXPECT_EQ(to_string(m), "m");
@@ -1168,7 +1170,7 @@ TEST(mapTests, testRoundTripFromUnit)
         }
     }
 }
-namespace units {
+namespace UNITS_NAMESPACE {
 
 static std::ostream& operator<<(std::ostream& os, const units::precise_unit& u)
 {
@@ -1176,7 +1178,7 @@ static std::ostream& operator<<(std::ostream& os, const units::precise_unit& u)
     return os;
 }
 
-}  // namespace units
+}  // namespace UNITS_NAMESPACE
 
 TEST(stream, test_outstream)
 {

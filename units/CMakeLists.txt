@@ -27,6 +27,7 @@ else(UNITS_HEADER_ONLY)
                                 $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
         )
         target_link_libraries(units-static PRIVATE compile_flags_target)
+        target_compile_definitions(units-static PUBLIC UNITS_NAMESPACE=${UNITS_NAMESPACE})
 
         if(UNITS_ENABLE_TESTS)
             target_compile_definitions(

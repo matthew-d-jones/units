@@ -13,7 +13,7 @@ SPDX-License-Identifier: BSD-3-Clause
 #include <cstdlib>
 #include <limits>
 
-namespace units {
+namespace UNITS_NAMESPACE {
 /// Constants used in definitions of units
 
 static_assert(
@@ -1586,7 +1586,7 @@ namespace detail {
     double convertTemperature(double val, const UX& start, const UX2& result)
     {
         if (is_temperature(start)) {
-            if (units::degF == unit_cast(start)) {
+            if (UNITS_NAMESPACE::degF == unit_cast(start)) {
                 val = (val - 32.0) * 5.0 / 9.0;
             } else if (start.multiplier() != 1.0) {
                 val = val * start.multiplier();
@@ -1598,7 +1598,7 @@ namespace detail {
         }
         if (is_temperature(result)) {
             val -= 273.15;
-            if (units::degF == unit_cast(result)) {
+            if (UNITS_NAMESPACE::degF == unit_cast(result)) {
                 val *= 9.0 / 5.0;
                 val += 32.0;
             } else if (result.multiplier() != 1.0) {
@@ -1882,4 +1882,4 @@ namespace detail {
         return constants::invalid_conversion;
     }
 }  // namespace detail
-}  // namespace units
+}  // namespace UNITS_NAMESPACE

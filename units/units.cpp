@@ -26,7 +26,7 @@ SPDX-License-Identifier: BSD-3-Clause
 references http://people.csail.mit.edu/jaffer/MIXF/MIXF-08
 */
 
-namespace units {
+namespace UNITS_NAMESPACE {
 
 template<typename X>
 X numericalRoot(X value, int power)
@@ -6556,7 +6556,7 @@ static precise_unit unit_from_string_internal(
         }
     }
     return precise::invalid;
-}  // namespace units
+}  // namespace UNITS_NAMESPACE
 
 precise_measurement measurement_from_string(
     std::string measurement_string,
@@ -7005,4 +7005,4 @@ namespace detail {
 }  // namespace detail
 #endif
 
-}  // namespace units
+}  // namespace UNITS_NAMESPACE
