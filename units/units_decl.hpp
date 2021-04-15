@@ -673,6 +673,14 @@ class precise_unit {
         base_units_(base_unit)
     {
     }
+    /// Copy constructor
+    constexpr precise_unit(const precise_unit& other) :
+        precise_unit(
+            other.base_units_,
+            other.commodity_,
+            other.multiplier_)
+    {
+    }
     /// copy constructor from a less precise unit
     explicit constexpr precise_unit(const unit& other) noexcept :
         base_units_(other.base_units_), multiplier_(other.multiplier())
