@@ -10,6 +10,7 @@ set(units_header_files units.hpp units_decl.hpp unit_definitions.hpp units_util.
 
 include(GenerateExportHeader)
 
+message(STATUS "UNITS_BASE_TYPE is ${UNITS_BASE_TYPE}")
 if(UNITS_HEADER_ONLY)
     add_library(units-header-only INTERFACE)
     target_include_directories(
